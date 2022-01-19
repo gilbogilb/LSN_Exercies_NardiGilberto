@@ -1,0 +1,17 @@
+1.1
+108
+0.8
+2.5
+0.2
+100
+5000
+
+  ReadInput >> temp;
+  ReadInput >> npart;
+  ReadInput >> rho;
+  ReadInput >> rcut;
+  ReadInput >> delta;
+  ReadInput >> nblk;
+  ReadInput >> nstep;
+
+𝜌⋆=0.8, 𝑇⋆=1.1 (cut-off radius: 𝑟𝑐=2.5)

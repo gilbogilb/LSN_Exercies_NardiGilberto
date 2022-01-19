@@ -36,10 +36,10 @@ IntegralMC::IntegralAVE(double xmin, double xmax, FunzioneBase *f, int punti) {
   return (xmax-xmin)*integral/static_cast<double>(punti);
 }
 
-double IntegralMC::IntegralAVE(double xmin, double xmax, FunzioneBase *f, FunzioneBase *pdfCumulative, int punti){
+double IntegralMC::IntegralAVE(double xmin, double xmax, FunzioneBase *f, FunzioneBase *revCumulative, int punti){
 	double integral = 0;
 	for(int i=0; i<punti; ++i)
-		integral+=f->Eval(pdfCumulative->Eval(rnd.Rannyu()));
+		integral+=f->Eval(revCumulative->Eval(rnd.Rannyu(xmin,xmax)));
 	
   return (xmax-xmin)*integral/static_cast<double>(punti);
 }

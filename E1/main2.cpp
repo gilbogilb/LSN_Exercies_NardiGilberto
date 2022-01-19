@@ -14,15 +14,13 @@ Questioni: il dado normale in realtà da per ora  [0,1] e non val
 #include "random.h"
 #include <vector>
 
-
 int main() {
 
-	int iterations = 10000; //number of iterations over
-	                                       //a single N value
+	int iterations = 10000;                //histogram size
 	std::vector<int> N = {1,2,10,100};     //different values for N
 	
 	Random rnd;
-	rnd.Initialize("Primes","seed.in");
+	rnd.Initialize();
 	
 	//normal dice
 	std::ofstream outNorm("data/2norm.dat");
@@ -37,10 +35,10 @@ int main() {
 				
 			if(outNorm.good()) 
 				outNorm << sum/static_cast<double>(*it) << " ";
-			}
+		}
 			 
-	if(outNorm.good())       //output format : N =  1   2   10   100
-	outNorm << std::endl;    //                    xxx xxx xxxx  xxxx                                     
+	if(outNorm.good())      	 //output format : N =  1   2   10   100
+		outNorm << std::endl;    //                    xxx xxx xxxx  xxxx                                     
 	}
 	
 	outNorm.close();
@@ -57,7 +55,7 @@ int main() {
 			if(outExp.good()) 
 				outExp << sum/static_cast<double>(*it) << " ";
 		}
-	if(outExp.good())       //output format : N =  1   2   10   100
+	if(outExp.good())         //output format : N =  1   2   10   100
 		outExp << std::endl;  //                    xxx xxx xxxx  xxxx
 	}	                                      
 	
@@ -75,12 +73,12 @@ int main() {
 			if(outLor.good()) 
 				outLor << sum/static_cast<double>(*it) << " ";
 		}
-	if(outLor.good())       //output format : N =  1   2   10   100
+	if(outLor.good())         //output format : N =  1   2   10   100
 		outLor << std::endl;  //                    xxx xxx xxxx  xxxx
 	}	                                      
 	
 	outLor.close();
-
+	rnd.SaveSeed();
 
 return 0;
 }

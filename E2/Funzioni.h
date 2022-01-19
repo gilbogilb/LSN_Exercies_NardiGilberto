@@ -107,7 +107,7 @@ class Somma: public FunzioneBase{
 
     double Eval(double x) const{return m_f1->Eval(x)+m_f2->Eval(x);}
 
-    bool IsGood() {(m_f1==NULL || m_f2==NULL)?false:true;} //checks if the pointers are NULL
+    bool IsGood() {if(m_f1==NULL || m_f2==NULL){return false;} else { return true;} } //checks if the pointers are NULL
 
   private:
     FunzioneBase *m_f1, *m_f2;
@@ -123,7 +123,7 @@ class Prodotto: public FunzioneBase{
 
     double Eval(double x) const{return m_f1->Eval(x)*m_f2->Eval(x);}
 
-    bool IsGood() {(m_f1==NULL || m_f2==NULL)?false:true;} //checks if the pointers are NULL
+    bool IsGood() {if(m_f1==NULL || m_f2==NULL){return false;} else { return true;} } //checks if the pointers are NULL
 
   private:
     FunzioneBase *m_f1, *m_f2;
@@ -139,7 +139,7 @@ class Divisione: public FunzioneBase{
 		
 		double Eval(double x) const {return m_f1->Eval(x)/m_f2->Eval(x);}
 		
-		bool IsGood() {(m_f1==NULL || m_f2==NULL)?false:true;} //checks if the pointers are NULL
+		bool IsGood() {if(m_f1==NULL || m_f2==NULL){return false;} else { return true;} } //checks if the pointers are NULL
 
   private:
     FunzioneBase *m_f1, *m_f2;

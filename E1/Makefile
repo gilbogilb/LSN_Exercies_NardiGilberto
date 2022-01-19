@@ -1,6 +1,5 @@
 CC = g++
-CFLAGS = -Wall -O3 --std=c++11 `root-config --cflags`
-LIBS   = `root-config --libs`
+CFLAGS = -Wall -O3 --std=c++11
 
 all: main1.exe main2.exe main3.exe
 
